@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:16:13 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:12:06 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:31:32 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,4 @@ int main(int argc, char **argv)
 		std::cerr << "Invalid ammount of arguments" << std::endl;
 	}
 	return(0);
-
-	float f = 5.f;
 }
