@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:16:13 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/15 15:19:51 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:39:29 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,18 @@
 
 int main(int argc, char **argv)
 {
-	if (argc == 2)
+	if (argc != 2)
+	{
+		std::cerr << "Invalid ammount of arguments" << std::endl;
+		return (1);
+	}
+	try
 	{
 		patternMatch(argv[1]);
 	}
-	else
+	catch(const std::exception &e)
 	{
-		std::cerr << "Invalid ammount of arguments" << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	return(0);
 }

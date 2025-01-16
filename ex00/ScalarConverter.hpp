@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:10:43 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/15 15:11:29 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:11:15 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #include <string>
 #include <limits>
 #include <cctype>
+
+enum Type
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+};
 
 class ScalarConverter
 {
