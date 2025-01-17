@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:10:43 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:09:35 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:18:08 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_input
 class ScalarConverter
 {
   private:
+	//Non-instanciable
+	ScalarConverter();
+
 	//Parsing
 	static void patternMatch(char *str);
 
@@ -53,6 +56,7 @@ class ScalarConverter
 	//Printing
 	static void printConversion(t_input s);
   public:
+	~ScalarConverter() = delete;
 	static void convert(std::string str);
 };
 // Static funcitons can be called without an object and can only access other static members inside the class

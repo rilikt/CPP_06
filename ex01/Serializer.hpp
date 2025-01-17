@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:16:13 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:18:31 by timschmi         ###   ########.fr       */
+/*   Created: 2025/01/17 17:23:51 by timschmi          #+#    #+#             */
+/*   Updated: 2025/01/17 17:32:45 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
 
-//inff and inf without + or - infront??
-//Precision, reset? and what ammount to set it to? std::defaultfloatprecision or smth like that?
+#include <cstdint>
+#include <iostream>
 
-//Dynamically set precision!!?!?!?!?!?
 
-int main(int argc, char **argv)
+typedef struct s_data
 {
-	if (argc != 2)
-		return (std::cerr << "Invalid ammount of arguments" << std::endl, 1);
-	ScalarConverter::convert(argv[1]);
+	int value1;
+	int value2;
+	std::string str;
+} Data;
 
-	return(0);
-}
+// class Data
+// {
+//   private:
+//   public:
+	
+// };
+
+class Serializer
+{
+  private:
+	Serializer();
+  public:
+	~Serializer() = delete;
+	static uintptr_t serialize(Data *ptr);
+	static Data* deserialize(uintptr_t raw);
+};

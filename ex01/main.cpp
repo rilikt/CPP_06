@@ -5,23 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:16:13 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:18:31 by timschmi         ###   ########.fr       */
+/*   Created: 2025/01/17 17:23:47 by timschmi          #+#    #+#             */
+/*   Updated: 2025/01/17 17:53:33 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-//inff and inf without + or - infront??
-//Precision, reset? and what ammount to set it to? std::defaultfloatprecision or smth like that?
+//read up more on uintptr
+//maybe gather some more information about casting in cpp in general
+//downcasting?
 
-//Dynamically set precision!!?!?!?!?!?
-
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 2)
-		return (std::cerr << "Invalid ammount of arguments" << std::endl, 1);
-	ScalarConverter::convert(argv[1]);
+	Data *d, *r;
+	uintptr_t ptr;
 
+	d = new Data;
+
+	d->value1 = 1;
+	d->value2 = 2;
+	d->str = "Hehexd";
+
+	ptr = Serializer::serialize(d);
+	r = Serializer::deserialize(ptr);
+
+	std::cout << r->value1 << r->value2 << r->str << std::endl;
+
+	delete d;
+	
 	return(0);
 }
