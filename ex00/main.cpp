@@ -6,31 +6,22 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:16:13 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/16 11:39:29 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:01:48 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-//TO DO: check for variable ranges before conversion form string?
-//myb check max len with regex
 //inff and inf without + or - infront??
 //Precision, reset? and what ammount to set it to? std::defaultfloatprecision or smth like that?
+
+//Dynamically set precision!!?!?!?!?!?
 
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-	{
-		std::cerr << "Invalid ammount of arguments" << std::endl;
-		return (1);
-	}
-	try
-	{
-		patternMatch(argv[1]);
-	}
-	catch(const std::exception &e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
+		return (std::cerr << "Invalid ammount of arguments" << std::endl, 1);
+	ScalarConverter::convert(argv[1]);
+
 	return(0);
 }

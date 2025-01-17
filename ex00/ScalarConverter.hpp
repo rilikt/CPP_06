@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:10:43 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 12:45:22 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:09:35 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,7 @@
 #include <iomanip>
 #include <string>
 #include <limits>
-#include <cctype>
-
-enum Type
-{
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-};
+#include <regex>
 
 enum Valid
 {
@@ -48,19 +40,19 @@ typedef struct s_input
 class ScalarConverter
 {
   private:
+	//Parsing
+	static void patternMatch(char *str);
+
+	//Conversion
+	static t_input setInput();
+	static void charFound(char c);
+	static void intFound(std::string str);
+	static void floatFound(std::string str);
+	static void doubleFound(std::string str);
+
+	//Printing
+	static void printConversion(t_input s);
   public:
-	static void convert(std::string str); //research static keyword
-  
+	static void convert(std::string str);
 };
-
-//Parsing
-void patternMatch(char *str);
-
-//Conversion
-void charFound(char c);
-void intFound(std::string str);
-void floatFound(std::string str);
-void doubleFound(std::string str);
-
-//Printing
-void printConversion(t_input s);
+// Static funcitons can be called without an object and can only access other static members inside the class

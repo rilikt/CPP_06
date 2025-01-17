@@ -6,14 +6,13 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:32:25 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 10:46:57 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:09:28 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <regex>
 
-void patternMatch(char *str)
+void ScalarConverter::patternMatch(char *str)
 {
 	std::regex char_pattern(R"(\s*([\D\S])\s*)");
 	std::regex int_pattern(R"(\s*((-?|\+?)[0-9]{1,10})\s*)");
