@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:32:25 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/16 12:22:12 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/17 10:46:57 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void patternMatch(char *str)
 		std::cout << "Float match found!: " << cm.str(1) << std::endl;
 		floatFound(cm.str(1));
 	}
-	// else if (std::regex_match(str, cm, double_pattern))
-	// {
-	// 	std::cout << "Double match found!: " << cm.str(1) << std::endl;
-	// 	doubleFound(cm.str(1));
-	// }
+	else if (std::regex_match(str, cm, double_pattern))
+	{
+		std::cout << "Double match found!: " << cm.str(1) << std::endl;
+		doubleFound(cm.str(1));
+	}
 	else
 		std::cerr << "No pattern match found" << std::endl;
 }

@@ -6,75 +6,90 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:39:59 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/16 12:39:03 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:44:32 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-// void printConversion(Type type)
-// {
-// 	switch (type)
-// 	{
-// 		case CHAR:
-// 		case INT:
-// 		case FLOAT:
-// 		case DOUBLE:
-// 		default:
-// 			std::cerr << "No matching type in switch case found" << std::endl;
-// 	}
-// }
-
-void charFound(char c) //How to set and reset precision correctly
+void printConversion(t_input s)
 {
-	std::cout << c << std::endl;
-	std::cout << static_cast<int>(c) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
-	std::cout << static_cast<double>(c) << std::setprecision(0) << std::endl; 
+	if (s.cv == IMPOSS)
+		std::cout << "char: Impossible" << std::endl;
+	else if (s.cv == NONDIS)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: " << s.c << std::endl;
+	if (s.iv == IMPOSS)
+		std::cout << "int: Impossible" << std::endl;
+	else
+		std::cout << "int: "<< s.i << std::endl;
+	if (s.fv == IMPOSS)
+		std::cout << "float: Impossible" << std::endl;
+	else
+		std::cout << "float: " << std::fixed << std::setprecision(1) << s.f << "f" << std::endl;
+	if (s.dv == IMPOSS)
+		std::cout << "double: Impossible" << std::endl;
+	else
+		std::cout << "double: " << s.d << std::endl; 
+}
+
+void charFound(char c)
+{
+	t_input s;
+
+	s.c = c;
+	s.i = static_cast<int>(c);
+	s.f = static_cast<float>(c);
+	s.d = static_cast<double>(c);
+
+	printConversion(s);
 }
 
 void intFound(std::string str)
 {
-	long int li;
-	int i;
+	t_input s;
 
-	li = std::stol(str);
-	if (li > std::numeric_limits<int>::max() || li < std::numeric_limits<int>::min())
-	{
-		std::cerr << "Value out of int range" << std::endl;
-		return;
-	}
-	i = static_cast<int>(li);
-	if (std::isprint(i))
-		std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
+	s.i = std::stoi(str);
+
+	if (std::isprint(s.i))
+		s.c = static_cast<char>(s.i);
 	else
-		std::cout << "Non diplayable" << std::endl;
-	std::cout << i << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-	std::cout << static_cast<double>(i) << std::setprecision(0) << std::endl;
+		s.cv = NONDIS;
+	s.f = static_cast<float>(s.i); 
+	// s.fv = VALID;
+	s.d = static_cast<double>(s.i);
+
+	printConversion(s);
 }
 
 void floatFound(std::string str) //Check for isprintable and int overflow
 {
-	double d;
-	float f;
+	t_input s;
 
-	f = std::stof(str);
-	// if (str.length() > 9)
-	// 	std::cerr << "Value out of float range" << std::endl;
-	// d = std::stod(str);
-	// if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())
-	// {
-	// 	std::cerr << "Value out of float range" << std::endl;
-	// 	return;
-	// }
-	// f = static_cast<float>(d);
-	// std::cout << std::fixed << f << "f" << std::endl;
+	s.f = std::stof(str);
 
-	std::cout << static_cast<char>(f) << std::endl;
-	std::cout << static_cast<int>(f) << std::endl;
-	std::cout << std::fixed << f << "f" << std::endl;
-	std::cout << static_cast<double>(f) << std::endl; 
+	s.c = static_cast<char>(s.f);
+	s.i = static_cast<int>(s.f);
+	s.d = static_cast<double>(s.f);
 
+	printConversion(s);
+}
+
+void doubleFound(std::string str)
+{
+	t_input s;
+
+	s.d = std::stod(str);
+
+	s.c = static_cast<char>(s.d);
 	
+	if(s.d > static_cast<int>(std::numeric_limits<int>::max()) || s.d < static_cast<int>(std::numeric_limits<int>::min()))
+		std::cout << "Int: out of range" << std::endl;
+	else
+		s.i  = static_cast<int>(s.d);
+	
+	s.f = static_cast<float>(s.d);
+
+	printConversion(s);
 }
