@@ -6,17 +6,17 @@
 #    By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/09 15:31:31 by timschmi          #+#    #+#              #
-#    Updated: 2025/01/18 13:18:22 by timschmi         ###   ########.fr        #
+#    Updated: 2025/01/18 13:16:55 by timschmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp ScalarConverter.cpp PatternMatch.cpp
+SRC = main.cpp Identify.cpp
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 CC = c++
 
-NAME = scalar
+NAME = identify
 CFLAGS = -std=c++17 -Wall -Werror -Wextra
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 #    By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/09 15:31:31 by timschmi          #+#    #+#              #
-#    Updated: 2025/01/17 17:47:30 by timschmi         ###   ########.fr        #
+#    Updated: 2025/01/18 13:18:02 by timschmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 CC = c++
 
 NAME = serialize
-CFLAGS = -std=c++17 #-Wall -Werror -Wextra
+CFLAGS = -std=c++17 -Wall -Werror -Wextra
 
 all: $(NAME)
 

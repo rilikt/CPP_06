@@ -5,35 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 17:23:47 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/18 11:18:55 by timschmi         ###   ########.fr       */
+/*   Created: 2025/01/18 11:20:29 by timschmi          #+#    #+#             */
+/*   Updated: 2025/01/18 13:16:52 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-
-//read up more on uintptr
-//maybe gather some more information about casting in cpp in general
-//downcasting?
-//orthodox canonical?
+#include "Identify.hpp"
 
 int main()
 {
-	Data *d, *r;
-	uintptr_t ptr;
+	Base *b;
 
-	d = new Data;
+	b = generate();
+	
+	identify(b);
 
-	d->value1 = 1;
-	d->value2 = 2;
-	d->str = "Hehexd";
+	identify(*b);
 
-	ptr = Serializer::serialize(d);
-	r = Serializer::deserialize(ptr);
-
-	std::cout << r->value1 << r->value2 << r->str << std::endl;
-
-	delete r;
-
-	return(0);
+	return (0);
 }
