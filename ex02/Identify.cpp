@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:29:06 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/18 13:17:35 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:39:58 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,22 @@ void identify(Base *p)
 	C *c_ptr = dynamic_cast<C*>(p);
 
 	if (a_ptr)
+	{
 		std::cout << "Pointer of class A identified" << std::endl;
+		return;
+	}
 	else if (b_ptr)
+	{
 		std::cout << "Pointer of class B identified" << std::endl;
+		return;
+	}
 	else if (c_ptr)
+	{
 		std::cout << "Pointer of class C identified" << std::endl;
+		return;
+	}
+	else
+		std::cout << "No matching class found." << std::endl;
 }
 
 void identify(Base &p)
@@ -60,19 +71,22 @@ void identify(Base &p)
 	{
 		(void)dynamic_cast<A&>(p);
 		std::cout << "Reference of class A identified" << std::endl;
+		return;
 	}
 	catch (const std::exception &e) {}
 	try
 	{
 		(void)dynamic_cast<B&>(p);
 		std::cout << "Reference of class B identified" << std::endl;
+		return;
 	}
 	catch (const std::exception &e) {}
 	try
 	{
 		(void)dynamic_cast<C&>(p);
 		std::cout << "Reference of class C identified" << std::endl;
+		return;
 	}
 	catch (const std::exception &e) {}
-
+	std::cout << "No matching class found." << std::endl;
 }

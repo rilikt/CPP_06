@@ -6,7 +6,7 @@
 #    By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/09 15:31:31 by timschmi          #+#    #+#              #
-#    Updated: 2025/01/18 13:18:22 by timschmi         ###   ########.fr        #
+#    Updated: 2025/04/18 12:16:40 by timschmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 CC = c++
 
-NAME = scalar
+NAME = convert
 CFLAGS = -std=c++17 -Wall -Werror -Wextra
 
 all: $(NAME)

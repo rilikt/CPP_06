@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:20:29 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/18 13:16:52 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:40:43 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int main()
 	Base *b;
 
 	b = generate();
-	
+
+	// b = nullptr;
+
 	identify(b);
 
 	identify(*b);

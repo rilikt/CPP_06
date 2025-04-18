@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:10:43 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:18:08 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:21:07 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ class ScalarConverter
 	static void printConversion(t_input s);
   public:
 	~ScalarConverter() = delete;
+	ScalarConverter(const ScalarConverter &other) = delete;
+	ScalarConverter& operator=(const ScalarConverter &other) = delete;
 	static void convert(std::string str);
 };
 // Static funcitons can be called without an object and can only access other static members inside the class

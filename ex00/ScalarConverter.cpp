@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:39:59 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:05:15 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:58:33 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void ScalarConverter::intFound(std::string str)
 
 	s.i = std::stoi(str);
 
-	if (std::isprint(s.i))
-		s.c = static_cast<char>(s.i);
-	else if(s.i > 127 || s.i < -128)
+	if(s.i > 127 || s.i < -128)
 		s.cv = IMPOSS;
+	else if (std::isprint(s.i))
+		s.c = static_cast<char>(s.i);
 	else
 		s.cv = NONDIS;
 

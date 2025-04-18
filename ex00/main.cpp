@@ -6,16 +6,11 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:16:13 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:18:31 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:16:28 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-//inff and inf without + or - infront??
-//Precision, reset? and what ammount to set it to? std::defaultfloatprecision or smth like that?
-
-//Dynamically set precision!!?!?!?!?!?
 
 int main(int argc, char **argv)
 {

@@ -6,16 +6,11 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:23:47 by timschmi          #+#    #+#             */
-/*   Updated: 2025/01/18 11:18:55 by timschmi         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:28:36 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-
-//read up more on uintptr
-//maybe gather some more information about casting in cpp in general
-//downcasting?
-//orthodox canonical?
 
 int main()
 {
@@ -31,7 +26,7 @@ int main()
 	ptr = Serializer::serialize(d);
 	r = Serializer::deserialize(ptr);
 
-	std::cout << r->value1 << r->value2 << r->str << std::endl;
+	std::cout << "value1: " << r->value1  << "\nvalue2: " << r->value2 << "\nstr: " << r->str << std::endl;
 
 	delete r;
 
